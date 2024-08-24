@@ -6,9 +6,11 @@
 
 #### 주요 부품
 
-컨트롤러: NodeMCU(ESP8266) 보드![](./md/img/nodemcu.png)
+컨트롤러: NodeMCU(ESP8266) 보드
+![](./md/img/nodemcu.png)
 
-전류센서: ZMCT103C![](./md/img/ZMCT103C.png)
+전류센서: ZMCT103C
+![](./md/img/ZMCT103C.png)
 
 ---
 
