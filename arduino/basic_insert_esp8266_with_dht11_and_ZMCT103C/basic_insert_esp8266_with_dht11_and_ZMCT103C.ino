@@ -22,7 +22,7 @@ char password[] = "1234";               // MySQL 사용자 비밀번호
 
 // 데이터베이스에 삽입할 SQL 쿼리 문자열
 //char INSERT_SQL[] = "INSERT INTO dht11.dev01(Temperature, Humidity) VALUES (%d, %d)";
-char INSERT_SQL[] = "INSERT INTO dht11.dev02(Voltage, Ampare, Watt) VALUES (%.3f, %.3f, %.3f)";
+char INSERT_SQL[] = "INSERT INTO dht11.dev02(Voltage, Ampere, Watt) VALUES (%.3f, %.3f, %.3f)";
 char query[128];                        // 쿼리 문자열을 저장할 배열
 
 WiFiClient client;                      // WiFi 클라이언트 객체 생성
@@ -62,21 +62,21 @@ void setup() {
 
 void loop() {
   // 데이터 수집(dht11)
-  float t = dht.readTemperature(); // DHT 센서로부터 온도 읽기
-  float h = dht.readHumidity();    // DHT 센서로부터 습도 읽기
-
-  int Temperature = int(t) % 100;  // 온도를 정수로 변환하고 100으로 나눈 나머지로 설정
-  int Humidity    = int(h) % 100;  // 습도를 정수로 변환하고 100으로 나눈 나머지로 설정
-
-  Serial.print(Temperature);  Serial.print("*C\t"); // 온도 출력
-  Serial.print(Humidity);     Serial.print("%\n");  // 습도 출력
-
-  sprintf(query, INSERT_SQL, Temperature, Humidity); // 쿼리 문자열에 온도와 습도를 삽입
-
-  if (conn.connected())       // MySQL 서버에 연결된 상태인지 확인
-    cursor->execute(query);   // SQL 쿼리 실행
-
-  delay(5000);                // 5초 대기
+//  float t = dht.readTemperature(); // DHT 센서로부터 온도 읽기
+//  float h = dht.readHumidity();    // DHT 센서로부터 습도 읽기
+//
+//  int Temperature = int(t) % 100;  // 온도를 정수로 변환하고 100으로 나눈 나머지로 설정
+//  int Humidity    = int(h) % 100;  // 습도를 정수로 변환하고 100으로 나눈 나머지로 설정
+//
+//  Serial.print(Temperature);  Serial.print("*C\t"); // 온도 출력
+//  Serial.print(Humidity);     Serial.print("%\n");  // 습도 출력
+//
+//  sprintf(query, INSERT_SQL, Temperature, Humidity); // 쿼리 문자열에 온도와 습도를 삽입
+//
+//  if (conn.connected())       // MySQL 서버에 연결된 상태인지 확인
+//    cursor->execute(query);   // SQL 쿼리 실행
+//
+//  delay(5000);                // 5초 대기
 
   // 데이터 수집(ZMCT103C)
   float nVPP = getVPP();        // 피크 전압 측정
